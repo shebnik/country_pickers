@@ -8,6 +8,7 @@ import 'utils/utils.dart';
 class CountryPickerDropdown extends StatefulWidget {
   const CountryPickerDropdown({super.key,
     required this.onValuePicked,
+    this.borderRadius,
     this.itemFilter,
     this.sortComparator,
     this.priorityList,
@@ -28,6 +29,9 @@ class CountryPickerDropdown extends StatefulWidget {
     this.disabledHint,
     this.isFirstDefaultIfInitialValueNotProvided = true,
   });
+
+  /// The border radius of the dropdown button
+  final BorderRadius? borderRadius;
 
   /// Filters the available country list
   final ItemFilter? itemFilter;
@@ -148,6 +152,7 @@ class _CountryPickerDropdownState extends State<CountryPickerDropdown> {
         .toList();
 
     return DropdownButton<Country>(
+      borderRadius: widget.borderRadius,
       hint: widget.hint,
       disabledHint: widget.disabledHint,
       onTap: widget.onTap,
